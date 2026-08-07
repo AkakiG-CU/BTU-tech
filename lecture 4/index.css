@@ -1,0 +1,26 @@
+.text1 {
+  /* color: blue; */
+}
+
+.box {
+  border: red 1px solid;
+  padding: 20px;
+}
+
+.child1 {
+  border: blue 5px solid;
+  border-radius: 50px;
+  padding: 15px;
+  margin: 3px 10px 3px 10px;
+}
+
+.child2 {
+  border: green 20px double;
+  /* margin-left: 60px; */
+  padding-left: 60px;
+}
+
+.child2:hover {
+  border: yellow 30px solid;
+  background-color: aqua;
+}

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS Inheritance Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: "Georgia", serif;
+        color: darkblue;
+        font-size: 18px;
+        line-height: 1.6;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .parent-div {
+        border: 2px solid #ccc;
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #f9f9f9;
+      }
+
+      .child-element {
+        background-color: #e8f4f8;
+        padding: 15px;
+        margin: 10px 0;
+        border-left: 4px solid #007acc;
+      }
+
+      .override-example {
+        color: red; /* This overrides the inherited color */
+        font-weight: bold;
+      }
+
+      .inherit-example {
+        /* This will inherit all text properties from parent */
+        background-color: lightyellow;
+        padding: 10px;
+      }
+
+      .no-inherit {
+        /* These properties are NOT inherited */
+        margin: 20px;
+        padding: 15px;
+        border: 1px solid green;
+        width: 50%;
+      }
+
+      h1,
+      h2 {
+        /* Headings inherit font-family and color from body */
+        text-align: center;
+      }
+
+      ul {
+        /* Lists inherit text properties */
+        background-color: #fff8dc;
+        padding: 20px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>CSS Inheritance Demonstration</h1>
+
+      <p>
+        This text inherits the font-family (Georgia), color (darkblue),
+        font-size (18px), and line-height (1.6) from the body element.
+      </p>
+
+      <div class="parent-div">
+        <h2>Parent Container</h2>
+        <p>
+          This paragraph is inside a parent div. It inherits text properties
+          from the body.
+        </p>
+
+        <div class="child-element">
+          <h3>Child Element</h3>
+          <p class="inherit-example">
+            This paragraph inherits all text properties from its ancestors (body
+            → parent-div → child-element).
+          </p>
+
+          <p class="override-example">
+            This paragraph overrides the inherited color with red, but still
+            inherits other properties like font-family and font-size.
+          </p>
+        </div>
+
+        <div class="no-inherit">
+          <p>
+            This div has its own margin, padding, border, and width. These
+            properties are NOT inherited by child elements.
+          </p>
+        </div>
+      </div>
+
+      <h2>Inherited Properties Examples</h2>
+      <ul>
+        <li>
+          <strong>Font properties:</strong> font-family, font-size, font-weight,
+          font-style
+        </li>
+        <li>
+          <strong>Text properties:</strong> color, text-align, line-height,
+          letter-spacing
+        </li>
+        <li>
+          <strong>List properties:</strong> list-style-type, list-style-position
+        </li>
+        <li><strong>Other:</strong> visibility, white-space, word-spacing</li>
+      </ul>
+
+      <h2>Non-Inherited Properties Examples</h2>
+      <ul>
+        <li>
+          <strong>Box model:</strong> margin, padding, border, width, height
+        </li>
+        <li><strong>Background:</strong> background-color, background-image</li>
+        <li><strong>Layout:</strong> display, position, float, z-index</li>
+        <li><strong>Effects:</strong> box-shadow, opacity, transform</li>
+      </ul>
+    </div>
+  </body>
+</html>

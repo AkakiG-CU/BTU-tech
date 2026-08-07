@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Display Types Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .demo-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        
+        .demo-section h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+        }
+        
+        /* Block Elements Examples */
+        .block-example {
+            background-color: lightblue;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid blue;
+            width: 70%;
+        }
+        
+        .custom-block {
+            display: block;
+            background-color: lightgreen;
+            padding: 10px;
+            border: 2px solid green;
+            width: 50%;
+            margin: 10px 0;
+        }
+        
+        /* Inline Elements Examples */
+        .inline-example {
+            background-color: lightyellow;
+            padding: 5px;
+            border: 2px solid orange;
+            margin: 10px; /* margin top/bottom ignored on inline elements */
+        }
+        
+        .custom-inline {
+            display: inline;
+            background-color: lightpink;
+            padding: 5px;
+            border: 2px solid red;
+            /* width and height ignored on inline elements */
+            width: 200px;
+            height: 100px;
+        }
+        
+        /* Inline-block Elements Examples */
+        .inline-block-example {
+            display: inline-block;
+            background-color: lightcoral;
+            padding: 15px;
+            margin: 10px;
+            border: 2px solid darkred;
+            width: 150px;
+            height: 80px;
+            text-align: center;
+        }
+        
+        /* Display: none example */
+        .hidden {
+            display: none;
+        }
+        
+        .visible {
+            background-color: lightsteelblue;
+            padding: 10px;
+            border: 2px solid steelblue;
+        }
+        
+        /* Natural block elements */
+        .natural-block {
+            background-color: #e8f4f8;
+            border: 1px solid #007acc;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        
+        /* Natural inline elements */
+        .highlight {
+            background-color: yellow;
+            padding: 2px 4px;
+        }
+        
+        .code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DOM Display Types Demonstration</h1>
+        
+        <div class="demo-section">
+            <h3>Block Elements (display: block)</h3>
+            <p>Block elements:</p>
+            <ul>
+                <li>Take up the full width available</li>
+                <li>Start on a new line</li>
+                <li>Can have width, height, margin, and padding</li>
+                <li>Stack vertically</li>
+            </ul>
+            
+            <div class="natural-block">Natural block element: DIV</div>
+            <p class="natural-block">Natural block element: P</p>
+            <ul class="natural-block">
+                <li>Natural block element: UL</li>
+            </ul>
+            
+            <div class="block-example">Custom block with 70% width</div>
+            <span class="custom-block">SPAN converted to block (50% width)</span>
+        </div>
+        
+        <div class="demo-section">
+            <h3>Inline Elements (display: inline)</h3>
+            <p>Inline elements:</p>
+            <ul>
+                <li>Only take up as much width as needed</li>
+                <li>Do not start on a new line</li>
+                <li>Cannot have width or height set</li>
+                <li>Vertical margins are ignored</li>
+            </ul>
+            
+            <p>
+                This paragraph contains natural inline elements: 
+                <a href="#" class="highlight">link</a>, 
+                <span class="highlight">span</span>, 
+                <strong class="highlight">strong</strong>, 
+                <code class="code">code</code>, and 
+                <em class="highlight">em</em>.
+            </p>
+            
+            <p>
+                These are custom inline elements: 
+                <span class="inline-example">inline 1</span>
+                <span class="inline-example">inline 2</span>
+                <div class="custom-inline">DIV as inline</div>
+                <span class="inline-example">inline 3</span>
+            </p>
+        </div>
+        
+        <div class="demo-section">
+            <h3>Inline-Block Elements (display: inline-block)</h3>
+            <p>Inline-block elements:</p>
+            <ul>
+                <li>Flow like inline elements (side by side)</li>
+                <li>Can have width, height, margins, and padding like block elements</li>
+                <li>Perfect for creating layouts with equal-sized boxes</li>
+            </ul>
+            
+            <div class="inline-block-example">Box 1</div>
+            <div class="inline-block-example">Box 2</div>
+            <div class="inline-block-example">Box 3</div>
+            
+            <p>These boxes sit side by side but can have dimensions set.</p>
+        </div>
+        
+        <div class="demo-section">
+            <h3>Display: none</h3>
+            <p>Elements with <code class="code">display: none</code> are completely removed from the document flow:</p>
+            
+            <div class="visible">This element is visible</div>
+            <div class="hidden">This element is hidden with display: none</div>
+            <div class="visible">This element is also visible</div>
+            
+            <p>Notice how the hidden element doesn't take up any space - the visible elements are right next to each other.</p>
+        </div>
+        
+        <div class="demo-section">
+            <h3>Common HTML Elements by Display Type</h3>
+            
+            <h4>Natural Block Elements:</h4>
+            <ul>
+                <li><code class="code">div</code> - Generic container</li>
+                <li><code class="code">p</code> - Paragraph</li>
+                <li><code class="code">h1-h6</code> - Headings</li>
+                <li><code class="code">ul, ol, li</code> - Lists and list items</li>
+                <li><code class="code">header, footer, section, article</code> - Semantic elements</li>
+            </ul>
+            
+            <h4>Natural Inline Elements:</h4>
+            <ul>
+                <li><code class="code">span</code> - Generic inline container</li>
+                <li><code class="code">a</code> - Links</li>
+                <li><code class="code">strong, em</code> - Text emphasis</li>
+                <li><code class="code">img</code> - Images (inline-block by default)</li>
+                <li><code class="code">code</code> - Code snippets</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
