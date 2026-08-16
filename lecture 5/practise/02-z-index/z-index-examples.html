@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Examples</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 20px 0;
+            border: 2px solid #333;
+        }
+
+        .box {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* Example 1: No z-index (natural stacking order) */
+        .red {
+            background-color: #e74c3c;
+            top: 50px;
+            left: 50px;
+        }
+
+        .blue {
+            background-color: #3498db;
+            top: 80px;
+            left: 80px;
+        }
+
+        .green {
+            background-color: #2ecc71;
+            top: 110px;
+            left: 110px;
+        }
+
+        /* Example 2: With z-index */
+        .red-z {
+            background-color: #e74c3c;
+            top: 50px;
+            left: 50px;
+            z-index: 3;
+        }
+
+        .blue-z {
+            background-color: #3498db;
+            top: 80px;
+            left: 80px;
+            z-index: 1;
+        }
+
+        .green-z {
+            background-color: #2ecc71;
+            top: 110px;
+            left: 110px;
+            z-index: 2;
+        }
+
+        /* Example 3: Negative z-index */
+        .behind {
+            background-color: #f39c12;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+        }
+
+        .front {
+            background-color: #9b59b6;
+            top: 40px;
+            left: 40px;
+            z-index: 1;
+        }
+
+        .explanation {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .z-values {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .z-demo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .z-high {
+            background-color: #e74c3c;
+            z-index: 1000;
+        }
+
+        .z-medium {
+            background-color: #3498db;
+            z-index: 10;
+            margin-left: -20px;
+        }
+
+        .z-low {
+            background-color: #2ecc71;
+            z-index: 1;
+            margin-left: -20px;
+        }
+
+        .z-negative {
+            background-color: #f39c12;
+            z-index: -10;
+            margin-left: -20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Z-Index Property Examples</h1>
+
+    <div class="explanation">
+        <strong>Natural Stacking Order:</strong> Without z-index, elements stack in the order they appear in HTML (later elements on top).
+    </div>
+    <div class="container">
+        <div class="box red">Red<br>First</div>
+        <div class="box blue">Blue<br>Second</div>
+        <div class="box green">Green<br>Third</div>
+    </div>
+
+    <div class="explanation">
+        <strong>With Z-Index:</strong> Higher z-index values appear on top, regardless of HTML order.
+    </div>
+    <div class="container">
+        <div class="box red-z">Red<br>z-index: 3</div>
+        <div class="box blue-z">Blue<br>z-index: 1</div>
+        <div class="box green-z">Green<br>z-index: 2</div>
+    </div>
+
+    <div class="explanation">
+        <strong>Negative Z-Index:</strong> Elements with negative z-index go behind their parent.
+    </div>
+    <div class="container">
+        <div class="box behind">Behind<br>z-index: -1</div>
+        <div class="box front">Front<br>z-index: 1</div>
+    </div>
+
+    <div class="explanation">
+        <strong>Z-Index Range:</strong> Values can range from negative infinity to positive infinity.
+    </div>
+    <div class="z-values">
+        <div class="z-demo z-high">1000</div>
+        <div class="z-demo z-medium">10</div>
+        <div class="z-demo z-low">1</div>
+        <div class="z-demo z-negative">-10</div>
+    </div>
+
+    <div class="explanation">
+        <strong>Important Notes:</strong>
+        <ul>
+            <li>Z-index only works on positioned elements (position: relative, absolute, fixed, sticky)</li>
+            <li>Elements with higher z-index values appear on top</li>
+            <li>If z-index values are equal, natural stacking order applies</li>
+            <li>Z-index creates stacking contexts</li>
+        </ul>
+    </div>
+</body>
+</html>

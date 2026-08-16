@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Item Properties</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .flex-container {
+            display: flex;
+            background-color: #ecf0f1;
+            border: 2px solid #34495e;
+            margin: 20px 0;
+            padding: 10px;
+            height: 150px;
+        }
+
+        .flex-item {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+        }
+
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        /* Different colors for items */
+        .item1 { background-color: #e74c3c; }
+        .item2 { background-color: #2ecc71; }
+        .item3 { background-color: #f39c12; }
+        .item4 { background-color: #9b59b6; }
+
+        /* Order Examples */
+        .order-1 { order: 1; }
+        .order-2 { order: 2; }
+        .order-3 { order: 3; }
+        .order-negative { order: -1; }
+
+        /* Flex Basis Examples */
+        .basis-auto { flex-basis: auto; }
+        .basis-0 { flex-basis: 0; }
+        .basis-100px { flex-basis: 100px; }
+        .basis-50percent { flex-basis: 50%; }
+        .basis-200px { flex-basis: 200px; }
+
+        /* Flex Grow Examples */
+        .grow-0 { flex-grow: 0; }
+        .grow-1 { flex-grow: 1; }
+        .grow-2 { flex-grow: 2; }
+        .grow-3 { flex-grow: 3; }
+
+        /* Flex Shrink Examples */
+        .shrink-0 { flex-shrink: 0; }
+        .shrink-1 { flex-shrink: 1; }
+        .shrink-2 { flex-shrink: 2; }
+
+        /* Flex Shorthand Examples */
+        .flex-auto { flex: auto; } /* flex: 1 1 auto */
+        .flex-none { flex: none; } /* flex: 0 0 auto */
+        .flex-1 { flex: 1; } /* flex: 1 1 0 */
+        .flex-2 { flex: 2; } /* flex: 2 1 0 */
+
+        .section-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            margin: 30px 0 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* For shrink example - make container smaller */
+        .shrink-container {
+            width: 300px;
+        }
+
+        .shrink-item {
+            flex-basis: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Item Properties</h1>
+
+    <div class="section-title">Order Property</div>
+    
+    <div class="explanation">
+        <strong>order</strong> - Controls the order of flex items. Default is 0. Can be negative or positive.
+    </div>
+    <div class="flex-container">
+        <div class="flex-item order-2">HTML Order: 1<br>CSS Order: 2</div>
+        <div class="flex-item item2 order-1">HTML Order: 2<br>CSS Order: 1</div>
+        <div class="flex-item item3 order-3">HTML Order: 3<br>CSS Order: 3</div>
+        <div class="flex-item item4 order-negative">HTML Order: 4<br>CSS Order: -1</div>
+    </div>
+
+    <div class="section-title">Flex Basis Property</div>
+
+    <div class="explanation">
+        <strong>flex-basis: auto</strong> - Uses the item's natural width (default).
+    </div>
+    <div class="flex-container">
+        <div class="flex-item basis-auto">auto</div>
+        <div class="flex-item item2 basis-auto">auto (longer text)</div>
+        <div class="flex-item item3 basis-auto">auto</div>
+    </div>
+
+    <div class="explanation">
+        <strong>flex-basis with specific values</strong> - Sets the initial size before free space is distributed.
+    </div>
+    <div class="flex-container">
+        <div class="flex-item basis-100px">100px</div>
+        <div class="flex-item item2 basis-200px">200px</div>
+        <div class="flex-item item3 basis-50percent">50%</div>
+    </div>
+
+    <div class="explanation">
+        <strong>flex-basis: 0</strong> - Makes all items start from zero width before growing.
+    </div>
+    <div class="flex-container">
+        <div class="flex-item basis-0 grow-1">basis: 0, grow: 1</div>
+        <div class="flex-item item2 basis-0 grow-1">basis: 0, grow: 1</div>
+        <div class="flex-item item3 basis-0 grow-1">basis: 0, grow: 1</div>
+    </div>
+
+    <div class="section-title">Flex Grow Property</div>
+
+    <div class="explanation">
+        <strong>flex-grow</strong> - Defines how much a flex item should grow relative to other items.
+    </div>
+    <div class="flex-container">
+        <div class="flex-item grow-0">grow: 0</div>
+        <div class="flex-item item2 grow-1">grow: 1</div>
+        <div class="flex-item item3 grow-2">grow: 2</div>
+    </div>
+
+    <div class="explanation">
+        <strong>All items with flex-grow: 1</strong> - Items share available space equally.
+    </div>
+    <div class="flex-container">
+        <div class="flex-item grow-1">Equal</div>
+        <div class="flex-item item2 grow-1">Equal</div>
+        <div class="flex-item item3 grow-1">Equal</div>
+    </div>
+
+    <div class="explanation">
+        <strong>Different grow values</strong> - Items grow proportionally to their flex-grow value.
+    </div>
+    <div class="flex-container">
+        <div class="flex-item grow-1">grow: 1</div>
+        <div class="flex-item item2 grow-2">grow: 2</div>
+        <div class="flex-item item3 grow-3">grow: 3</div>
+    </div>
+
+    <div class="section-title">Flex Shrink Property</div>
+
+    <div class="explanation">
+        <strong>flex-shrink</strong> - Defines how much a flex item should shrink when there's not enough space.
+    </div>
+    <div class="flex-container shrink-container">
+        <div class="flex-item shrink-item shrink-1">shrink: 1</div>
+        <div class="flex-item shrink-item item2 shrink-2">shrink: 2</div>
+        <div class="flex-item shrink-item item3 shrink-0">shrink: 0</div>
+    </div>
+
+    <div class="section-title">Flex Shorthand Property</div>
+
+    <div class="explanation">
+        <strong>flex shorthand</strong> - Combines flex-grow, flex-shrink, and flex-basis in one property.
+        <br><strong>Syntax:</strong> flex: [grow] [shrink] [basis]
+    </div>
+
+    <div class="explanation">
+        <strong>flex: 1</strong> - Equivalent to flex: 1 1 0 (grow, shrink, basis: 0)
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-1">flex: 1</div>
+        <div class="flex-item item2 flex-1">flex: 1</div>
+        <div class="flex-item item3 flex-1">flex: 1</div>
+    </div>
+
+    <div class="explanation">
+        <strong>flex: auto</strong> - Equivalent to flex: 1 1 auto (items grow and shrink based on content)
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-auto">auto</div>
+        <div class="flex-item item2 flex-auto">auto with more content</div>
+        <div class="flex-item item3 flex-auto">auto</div>
+    </div>
+
+    <div class="explanation">
+        <strong>flex: none</strong> - Equivalent to flex: 0 0 auto (items don't grow or shrink)
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-none">none</div>
+        <div class="flex-item item2 flex-none">none with more content</div>
+        <div class="flex-item item3 flex-1">flex: 1 (takes remaining space)</div>
+    </div>
+
+    <div class="explanation">
+        <strong>Mixed flex values</strong> - Different flex values on different items
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-1">flex: 1</div>
+        <div class="flex-item item2 flex-2">flex: 2</div>
+        <div class="flex-item item3 flex-none">flex: none</div>
+    </div>
+
+    <div class="section-title">Common Flex Patterns</div>
+
+    <div class="explanation">
+        <strong>Holy Grail Layout</strong> - Fixed sidebars with flexible main content
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-none" style="flex-basis: 100px;">Sidebar 1<br>(fixed)</div>
+        <div class="flex-item item2 flex-1">Main Content<br>(flexible)</div>
+        <div class="flex-item item3 flex-none" style="flex-basis: 100px;">Sidebar 2<br>(fixed)</div>
+    </div>
+
+    <div class="explanation">
+        <strong>Summary of Flex Item Properties:</strong>
+        <ul>
+            <li><strong>order:</strong> -∞ to +∞ (controls visual order)</li>
+            <li><strong>flex-grow:</strong> 0+ (how much to grow)</li>
+            <li><strong>flex-shrink:</strong> 0+ (how much to shrink)</li>
+            <li><strong>flex-basis:</strong> auto, 0, length, percentage (initial size)</li>
+            <li><strong>flex:</strong> shorthand for grow shrink basis</li>
+        </ul>
+    </div>
+</body>
+</html>
