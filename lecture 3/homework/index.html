@@ -1,176 +1,156 @@
-<!DOCTYPE html>
-    <html lang="en">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            <head>
-             <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homework Page</title>
 
-            <title>My Homework Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-                <link rel="stylesheet" href="style.css">
-                </head>
+  <body>
+    <div class="page">
+      <h1>My Homework Page</h1>
 
-                <body>
+      <!-- Navigation -->
+      <div class="navigation">
+        <a href="gallery">gallery</a> | <a href="#schedule">My Schedule</a> |
+        <a href="#contact">Contact</a>
+      </div>
 
-                <div class="page">
+      <!-- Hobby -->
+      <h2 id="hobby">My Favorite Hobby</h2>
 
-                <h1>My Homework Page</h1>
+      <p>
+        I love traveling and exploring new places. Below is one of my favorite
+        pictures from my last trip:
+      </p>
 
-                <!-- Navigation -->
-                    <div class="navigation">
-                        <a href="gallery">gallery</a> |
-                        <a href="#schedule">My Schedule</a> |
-                    <a href="#contact">Contact</a>
-                </div>
+      <img
+        src="landscape.jpg"
+        alt="Beautiful landscape scenery"
+        class="landscape"
+      />
 
+      <!-- Schedule -->
+      <h2 id="schedule">My Weekly Class Schedule</h2>
 
-                    <!-- Hobby -->
-                    <h2 id="hobby">My Favorite Hobby</h2>
+      <table class="schedule">
+        <tr>
+          <th>Day</th>
+          <th>8:00 - 10:00</th>
+          <th>10:00 - 12:00</th>
+          <th>1:00 - 3:00</th>
+          <th>3:00 - 5:00</th>
+        </tr>
 
-                   <p>
-                        I love traveling and exploring new places.
-                        Below is one of my favorite pictures from my last trip:
-                    </p>
+        <tr>
+          <td>Monday</td>
+          <td>Math</td>
+          <td>Science</td>
+          <td colspan="2">Project Work</td>
+        </tr>
 
-                    <img src="landscape.jpg"
-                        alt="Beautiful landscape scenery"
-                        class="landscape">
+        <tr>
+          <td>Tuesday</td>
+          <td>English</td>
+          <td>History</td>
+          <td>Sports</td>
+          <td>Free Study</td>
+        </tr>
 
+        <tr>
+          <td>Wednesday</td>
+          <td>Computer Lab</td>
+          <td>Math</td>
+          <td>Art</td>
+          <td>Science</td>
+        </tr>
 
-                    <!-- Schedule -->
-                    <h2 id="schedule">My Weekly Class Schedule</h2>
+        <tr>
+          <td>Thursday</td>
+          <td>English</td>
+          <td>Science</td>
+          <td colspan="2">Field Trip</td>
+        </tr>
 
-                        <table class="schedule">
+        <tr>
+          <td>Friday</td>
+          <td>Math</td>
+          <td>Computer Lab</td>
+          <td>Music</td>
+          <td>Sports</td>
+        </tr>
+      </table>
 
-                    <tr>
-                            <th>Day</th>
-                            <th>8:00 - 10:00</th>
-                            <th>10:00 - 12:00</th>
-                            <th>1:00 - 3:00</th>
-                            <th>3:00 - 5:00</th>
-                    </tr>
+      <!-- Contact -->
+      <h2 id="contact">Contact Me</h2>
 
-                    <tr>
-                            <td>Monday</td>
-                            <td>Math</td>
-                            <td>Science</td>
-                            <td colspan="2">Project Work</td>
-                    </tr>
+      <form>
+        <label for="name">Your Name:</label>
+        <br />
 
-                    <tr>
-                            <td>Tuesday</td>
-                            <td>English</td>
-                            <td>History</td>
-                            <td>Sports</td>
-                            <td>Free Study</td>
-                    </tr>
+        <input type="text" id="name" />
 
-                    <tr>
-                            <td>Wednesday</td>
-                            <td>Computer Lab</td>
-                            <td>Math</td>
-                            <td>Art</td>
-                            <td>Science</td>
-                    </tr>
+        <br />
 
-                    <tr>
-                            <td>Thursday</td>
-                            <td>English</td>
-                            <td>Science</td>
-                            <td colspan="2">Field Trip</td>
-                    </tr>
+        <label for="email">Email:</label>
+        <br />
 
-                    <tr>
-                            <td>Friday</td>
-                            <td>Math</td>
-                            <td>Computer Lab</td>
-                            <td>Music</td>
-                            <td>Sports</td>
-                    </tr>
+        <input type="email" id="email" />
 
-                                </table>
+        <br />
 
+        <label for="message">Message:</label>
+        <br />
 
-                                    <!-- Contact -->
-                                        <h2 id="contact">Contact Me</h2>
+        <textarea id="message"></textarea>
 
-                                                <form>
+        <br />
 
-                                                <label for="name">Your Name:</label>
-                                                    <br>
+        <label>Favorite Subject:</label>
+        <br />
 
-                                                        <input type="text" id="name">
+        <input type="radio" name="subject" id="math" />
+        <label for="math">Math</label>
 
-                                                    <br>
+        <input type="radio" name="subject" id="science" />
+        <label for="science">Science</label>
 
+        <input type="radio" name="subject" id="english" />
+        <label for="english">English</label>
 
-                                                                    <label for="email">Email:</label>
-                                                                            <br>
+        <br />
 
-                                                                            <input type="email" id="email">
+        <label for="color">Pick a color you like:</label>
 
-                                                                            <br>
+        <input type="color" id="color" />
 
+        <br />
 
-                                                                                    <label for="message">Message:</label>
-                                                                            <br>
+        <button type="submit">Send Message</button>
+      </form>
 
-                                                                                            <textarea id="message"></textarea>
+      <!-- Quick Links -->
+      <h3>Quick Links</h3>
 
-                                                                                                    <br>
+      <ul>
+        <li>
+          <a href="#hobby">See My Hobby</a>
+        </li>
 
+        <li>
+          <a href="#schedule">View My Schedule</a>
+        </li>
 
-                                                                                                            <label>Favorite Subject:</label>
-                                                                                                    <br>
+        <li>
+          <a href="#contact">Contact Me</a>
+        </li>
+      </ul>
 
-                                                                                                                <input type="radio" name="subject" id="math">
-                                                                                                                    <label for="math">Math</label>
-
-                                                                                                                        <input type="radio" name="subject" id="science">
-                                                                                                                            <label for="science">Science</label>
-
-                                                                                                                                <input type="radio" name="subject" id="english">
-                                                                                                                                        <label for="english">English</label>
-
-                                                                                                                                                <br>
-
-
-                                                                                                                                                        <label for="color">Pick a color you like:</label>
-
-                                                                                                                                                             <input type="color" id="color"> 
-
-                                                                                                                                                <br>
-
-                                                                                                                                                                 <button type="submit">Send Message</button>
-
-                                                                                                                                                                            </form>
-
-
-                                                                                                                                                                                <!-- Quick Links -->
-                                                                                                                                                                                    <h3>Quick Links</h3>
-
-                                                                                                                                                                                        <ul>
-                                                                                                                                                                                             <li>
-                                                                                                                                                                                                  <a href="#hobby">See My Hobby</a>
-                                                                                                                                                                                                            </li>
-
-                                                                                                                                                                                                             <li>
-                                                                                                                                                                                                             <a href="#schedule">View My Schedule</a>
-                                                                                                                                                                                                               </li>
-
-                                                                                                                                                                                                               <li>
-                                                                                                                                                                                                               <a href="#contact">Contact Me</a>
-                                                                                                                                                                                                               </li>
-                                                                                                                                                                                                                    </ul>
-
-
-                                                                                                                                                                                                                         <!-- Footer -->
-                                                                                                                                                                                                                             <footer>
-                                                                                                                                                                                                                                    © 2025 My Homework Page. All rights reserved.
-                                                                                                                                                                                                                             </footer>
-
-                                                                                                                                                                                                                                    </div>
-
-                                                                                                                                                                                                                                        </body>
-
-                                                                                                                                                                                                                                            </html>
+      <!-- Footer -->
+      <footer>© 2025 My Homework Page. All rights reserved.</footer>
+    </div>
+  </body>
+</html>

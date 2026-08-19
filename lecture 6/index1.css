@@ -1,0 +1,41 @@
+@font-face {
+  font-family: MyFont;
+  src: url("Elsie/Elsie-Black.ttf");
+  font-weight: 600;
+}
+
+.text {
+  font-family: "MyFont";
+  font-size: 40px;
+  font-weight: bold;
+  color: red;
+  line-height: 120px;
+}
+
+.box {
+  /* width: 500px;
+  height: 200px;
+  background-color: rgba(58, 172, 32, 0.628);
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original");
+  background-size: cover;
+  border: 10px red solid;
+  background-position: center; */
+}
+
+/* .box {
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(circle at center, red, blue);
+  box-shadow: 11px 10px 55px 25px rgba(0, 0, 0, 0.75);
+} */
+
+.box {
+  width: 160px;
+  height: 120px;
+  border: 1px solid #888;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background: #fafafa;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
