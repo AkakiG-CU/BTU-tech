@@ -1,0 +1,67 @@
+box-sizing: border-box;
+}
+
+  body {
+    margin: 0;
+    padding: 40px;
+    background: white;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+  .table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 140px 210px repeat(7, 1fr);
+
+      border-top: 2px solid #555;
+      border-left: 2px solid #555;
+}
+
+        .cell {
+        min-height: 65px;
+        padding: 12px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+            text-align: center;
+            font-size: 18px;
+
+              border-right: 2px solid #555;
+              border-bottom: 2px solid #555;
+}
+
+                  .header {
+                  background-color: #f3f3f3;
+                  font-weight: bold;
+}
+
+                        .train {
+                          grid-column: 1;
+                          grid-row: 1 / 3;
+}
+
+                              .route {  
+                                  grid-column: 2;
+                                  grid-row: 1 / 3;
+}
+
+                                    .weekdays {
+                                        grid-column: 3 / 8;
+                                        grid-row: 1;
+                                        font-size: 22px;
+}
+
+                                          .weekend {
+                                              grid-column: 8 / 10;
+                                              grid-row: 1;
+                                              font-size: 22px;
+}
+
+                                                .no-service {
+                                                    grid-column: 8 / 10;
+}

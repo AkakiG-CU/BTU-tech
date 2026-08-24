@@ -1,0 +1,137 @@
+
+.card{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  background-color: #58a6cb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #a0a0a0;
+  border-radius: 50%;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-name {
+  font-weight: bold;
+  font-size: 15px;
+  color: #0f1419;
+}
+
+.verified {
+  color: #1d9bf0;
+  font-size: 14px;
+}
+
+.username {
+  color: #536471;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subscribe-btn {
+  background-color: #0f1419;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.more-options {
+  color: #0f1419;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.post-text {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #0f1419;
+  margin-bottom: 14px;
+}
+
+.hashtag {
+  color: #1d9bf0;
+  text-decoration: none;
+}
+
+
+.media-box {
+  width: 100%;
+  height: 260px;
+  background-color: #a0a0a0;
+  border-radius: 16px;
+  border: 2px solid #1d9bf0;
+  margin-bottom: 14px;
+}
+
+
+.meta-info {
+  color: #536471;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+
+.footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #0f1419;
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 4px;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #0f1419;
