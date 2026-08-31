@@ -1,0 +1,60 @@
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+.hover-card {
+  display: inline-block;
+  background: #111827;
+  color: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.hover-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: #2563eb;
+}
+.box {
+  background: #0ea5e9;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  animation: slideIn 2s forwards;
+}
+
+.linear {
+  animation-timing-function: linear;
+}
+.ease {
+  animation-timing-function: ease;
+}
+.ease-in {
+  animation-timing-function: ease-in;
+}
+.ease-out {
+  animation-timing-function: ease-out;
+}
+.ease-in-out {
+  animation-timing-function: ease-in-out;
+}
+.step-start {
+  animation-timing-function: step-start;
+}
+.step-end {
+  animation-timing-function: step-end;
+}
+.bezier {
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}

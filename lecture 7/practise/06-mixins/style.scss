@@ -1,0 +1,16 @@
+@mixin card($padding: 1rem, $bg: #f8fafc, $radius: .5rem) {
+  padding: $padding;
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
+}
+
+.card {
+  @include card();
+  margin-bottom: 1rem;
+}
+
+.card[data-variant="outline"] {
+  @include card(1rem, #fff, .25rem);
+  box-shadow: 0 0 0 1px #e2e8f0 inset;
+}

@@ -1,0 +1,2 @@
+.card{padding:1rem;background:#f8fafc;border-radius:.5rem;box-shadow:0 1px 2px rgba(0,0,0,.08);margin-bottom:1rem}
+.card[data-variant="outline"]{padding:1rem;background:#fff;border-radius:.25rem;box-shadow:0 0 0 1px #e2e8f0 inset}

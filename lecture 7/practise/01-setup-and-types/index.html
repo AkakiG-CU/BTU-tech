@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Setup & Types (SCSS vs Sass)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Setup & Types</h1>
+    <section>
+      <h2>Install and Compile</h2>
+      <ol>
+        <li>Install: <code>npm install -g sass</code></li>
+        <li>Compile once: <code>sass style.scss style.css</code></li>
+        <li>Watch mode: <code>sass style.scss style.css --watch</code></li>
+      </ol>
+      <p>Source maps (<code>.map</code>) help DevTools map CSS back to SCSS.</p>
+    </section>
+
+    <section>
+      <h2>SCSS vs Sass (indented)</h2>
+      <div class="cols">
+        <div>
+          <h3>SCSS</h3>
+          <pre><code>$primary: #3498db;
+button {
+  background: $primary;
+  color: #fff;
+}
+</code></pre>
+        </div>
+        <div>
+          <h3>Sass (indented)</h3>
+          <pre><code>$primary: #3498db
+button
+  background: $primary
+  color: #fff
+</code></pre>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

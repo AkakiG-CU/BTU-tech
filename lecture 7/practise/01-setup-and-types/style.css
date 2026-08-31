@@ -1,0 +1,35 @@
+body {
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+  line-height: 1.5;
+}
+h1 {
+  margin: 0 0 1rem;
+}
+section {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.cols {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) {
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 0.75rem;
+  border-radius: 6px;
+  overflow: auto;
+}
+code {
+  font-family: ui-monospace, Menlo, monospace;
+}

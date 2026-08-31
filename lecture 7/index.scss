@@ -1,0 +1,165 @@
+@use "./partial";
+
+// @mixin spacing($padding-size: 20px, $margin-size: 50px) {
+//   padding: $padding-size;
+//   margin: $margin-size;
+//   border: solid 5px black;
+// }
+
+// .outer {
+//   @include spacing();
+//   background-color: blue;
+
+//   .inner {
+//     @include spacing(100px);
+
+//     background-color: red;
+
+//     .text {
+//       @include spacing(20px, 10px);
+
+//       color: yellow;
+//       width: 500px;
+//     }
+
+//     .small {
+//       @include spacing();
+
+//       width: 400px;
+
+//       color: blue;
+//     }
+//   }
+// }
+
+// @media (max-width: 1500px) {
+//   .outer .inner .text {
+//     width: 400px;
+//     color: blue;
+//   }
+
+//   .outer .inner .small {
+//     width: 300px;
+//   }
+// }
+
+// @media (max-width: 1000px) {
+//   .outer .inner .text {
+//     width: 400px;
+//     color: blue;
+//   }
+
+//   .outer .inner .small {
+//     width: 300px;
+//   }
+// }
+
+// @media (max-width: 800px) {
+//   .outer .inner .text {
+//     width: 200px;
+//     font-size: 20px;
+//     color: yellow;
+//   }
+// }
+
+// @media (max-width: 500px) {
+//   .outer .inner .text {
+//     width: 200px;
+//     font-size: 20px;
+//     color: yellow;
+//   }
+// }
+
+// .box {
+//   padding: 20px;
+//   margin: 100px;
+//   border: solid 5px black;
+// }
+
+// .outer {
+//   @extend .box;
+//   background-color: blue;
+
+//   .inner {
+//     @extend .box;
+
+//     background-color: red;
+
+//     .text {
+//       @extend .box;
+
+//       color: yellow;
+//       width: 10%;
+//     }
+
+//     .small {
+//       @extend .box;
+
+//       color: blue;
+//     }
+//   }
+// }
+
+@mixin spacing($padding-size: 20px, $margin-size: 50px) {
+  padding: $padding-size;
+  margin: $margin-size;
+  border: solid 5px black;
+}
+
+.outer {
+  @include spacing();
+  background-color: blue;
+
+  .inner {
+    @include spacing(100px);
+
+    background-color: red;
+
+    .text {
+      @include spacing(20px, 10px);
+
+      color: yellow;
+      width: 200px;
+    }
+
+    .small {
+      @include spacing();
+
+      width: 200px;
+
+      color: blue;
+    }
+  }
+}
+
+.box {
+  border: 5px solid black;
+  padding: 30px;
+  transition: 1s;
+}
+
+.box:hover {
+  background-color: red;
+}
+
+@media (min-width: 800px) {
+  .outer .inner .text {
+    width: 400px;
+    color: blue;
+  }
+
+  .outer .inner .small {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .outer .inner .text {
+    width: 600px;
+    color: yellow;
+  }
+
+  .outer .inner .small {
+    width: 300px;
+  }
+}

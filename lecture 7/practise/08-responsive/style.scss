@@ -1,0 +1,19 @@
+body{font-family:system-ui,-apple-system,Arial,sans-serif;margin:0;padding:1rem}
+.grid{
+  display:flex;
+  flex-wrap:wrap; // use flex wrap
+  gap:1rem;
+}
+.item{
+  flex:1 1 calc(50% - 1rem); // relative width
+  min-width: 220px; // helps wrap sooner
+  background:#e5e7eb;
+  padding:4vh; // relative unit example
+  text-align:center;
+  border-radius:8px;
+}
+
+/* Mobile-first: enhance at larger sizes */
+@media (min-width: 800px){
+  .item{ flex-basis: calc(25% - 1rem); }
+}
