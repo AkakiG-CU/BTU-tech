@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Get Elements Example</title>
+</head>
+<body>
+  <h1 id="myId">Heading</h1>
+  <p class="myClass">Paragraph 1</p>
+  <p class="myClass">Paragraph 2</p>
+  <div>Div element</div>
+  <script>
+    // Get element by ID
+    const heading = document.getElementById('myId');
+    heading.style.color = 'blue';
+
+    // Get elements by class name
+    const paragraphs = document.getElementsByClassName('myClass');
+    for (let p of paragraphs) {
+      p.style.fontWeight = 'bold';
+    }
+
+    // Get elements by tag name
+    const divs = document.getElementsByTagName('div');
+    divs[0].style.background = '#eee';
+  </script>
+</body>
+</html>

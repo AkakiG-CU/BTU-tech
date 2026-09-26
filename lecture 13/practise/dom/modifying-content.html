@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Modifying Content Example</title>
+</head>
+<body>
+  <h2 id="title">Original Title</h2>
+  <div class="info">Some info here</div>
+  <div id="container">Initial HTML</div>
+  <button onclick="modifyContent()">Modify Content</button>
+  <script>
+    function modifyContent() {
+      document.getElementById('title').innerText = 'Hello World!';
+      document.querySelector('.info').textContent = 'Updated content here!';
+      document.getElementById('container').innerHTML = '<strong>Bold text</strong>';
+    }
+  </script>
+</body>
+</html>

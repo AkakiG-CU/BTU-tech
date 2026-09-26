@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Add Attributes Example</title>
+</head>
+<body>
+  <button id="addLink">Add Link</button>
+  <div id="links"></div>
+  <script>
+    document.getElementById('addLink').onclick = function() {
+      let link = document.createElement('a');
+      link.setAttribute('href', 'https://example.com');
+      link.setAttribute('target', '_blank');
+      link.textContent = 'Visit Example.com';
+      document.getElementById('links').appendChild(link);
+    };
+  </script>
+</body>
+</html>

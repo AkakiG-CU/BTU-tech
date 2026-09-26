@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Event Listeners Example</title>
+</head>
+<body>
+  <button id="myButton">Click Me</button>
+  <div id="output"></div>
+  <script>
+    const button = document.getElementById('myButton');
+    button.addEventListener('click', (event) => {
+      document.getElementById('output').textContent = 'Clicked! Event type: ' + event.type;
+      console.log(event, 'Clicked!');
+    });
+  </script>
+</body>
+</html>

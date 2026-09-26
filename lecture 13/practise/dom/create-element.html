@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Create Element Example</title>
+</head>
+<body>
+  <button id="addCard">Add Card</button>
+  <div id="cards"></div>
+  <script>
+    document.getElementById('addCard').onclick = function() {
+      let div = document.createElement('div');
+      div.className = 'card';
+      div.classList.add('highlight');
+      div.textContent = 'New Card';
+      document.getElementById('cards').appendChild(div);
+      setTimeout(() => div.classList.toggle('active'), 500);
+    };
+  </script>
+  <style>
+    .card { margin: 10px; padding: 10px; border: 1px solid #333; }
+    .highlight { background: #ffd; }
+    .active { border-color: red; }
+  </style>
+</body>
+</html>

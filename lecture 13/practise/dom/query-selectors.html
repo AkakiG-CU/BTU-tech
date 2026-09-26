@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Query Selectors Example</title>
+</head>
+<body>
+  <div class="myClass">Class Div</div>
+  <div id="myId">ID Div</div>
+  <span class="myClass">Class Span</span>
+  <script>
+    // Query selector for class
+    document.querySelector('.myClass').style.border = '2px solid green';
+    // Query selector for ID
+    document.querySelector('#myId').style.background = 'yellow';
+    // Query selector for tag
+    document.querySelector('span').textContent = 'Selected by tag';
+    // Query selector all
+    document.querySelectorAll('div.myClass').forEach(el => el.style.padding = '10px');
+  </script>
+</body>
+</html>
