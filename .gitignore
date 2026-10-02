@@ -1,0 +1,4 @@
+# git ignore all node modules in all sub folders
+node_modules/**
+lecture 15/ts/node_modules
+lecture 15/npm/node_modules
