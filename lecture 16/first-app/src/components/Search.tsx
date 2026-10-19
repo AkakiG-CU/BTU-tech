@@ -1,4 +1,10 @@
-function Search({ search, onChange }) {
+function Search({
+  search,
+  onChange,
+}: {
+  search: string;
+  onChange: (value: string) => void;
+}) {
   return (
     <input
       style={{ padding: 10, width: 200 }}

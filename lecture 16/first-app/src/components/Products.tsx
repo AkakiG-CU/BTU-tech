@@ -1,4 +1,4 @@
-function Products({ search }) {
+function Products({ search }: { search: string }) {
   return (
     <div
       style={{
