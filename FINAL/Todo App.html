@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Todo App</title>
+<style>
+:root{--bg:#f5f6fa;--card:#fff;--text:#1f2430;--muted:#6b7280;--line:#e5e7eb;--accent:#4f46e5;--todo:#d97706;--prog:#2563eb;--wait:#9333ea;--done:#16a34a;--p1:#6b7280;--p2:#0891b2;--p3:#d97706;--p4:#ea580c;--p5:#dc2626;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161c;--card:#1e212b;--text:#eceef4;--muted:#9aa1b2;--line:#2c303c;--accent:#818cf8;--todo:#fbbf24;--prog:#60a5fa;--wait:#c084fc;--done:#4ade80;--p1:#9aa1b2;--p2:#22d3ee;--p3:#fbbf24;--p4:#fb923c;--p5:#f87171;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--accent);color:#fff;padding:16px 24px;font-size:20px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.hdr{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:400}
+.hdr span,.hdr small{background:rgba(255,255,255,.2);padding:4px 12px;border-radius:99px;font-size:14px}
+.layout{display:flex;min-height:calc(100vh - 56px)}
+aside{width:220px;background:var(--card);border-right:1px solid var(--line);padding:16px}
+aside button{display:flex;justify-content:space-between;width:100%;border:0;background:none;color:var(--text);padding:10px 12px;border-radius:8px;font-size:15px;cursor:pointer;text-align:left}
+aside button:hover{background:var(--bg)}
+aside button.active{background:var(--accent);color:#fff}
+.progress{margin-top:20px;font-size:13px;color:var(--muted)}
+.bar{height:8px;background:var(--bg);border-radius:99px;margin-top:6px;overflow:hidden}
+.bar div{height:100%;background:var(--done);transition:width .3s}
+main{flex:1;padding:24px;max-width:780px}
+h2{margin:0;font-size:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;transition:transform .15s,box-shadow .15s}
+.card:not(.add):hover{box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.add{display:grid;gap:10px;margin-bottom:24px}
+.label{font-size:13px;color:var(--muted)}
+.radios{display:flex;gap:6px;flex-wrap:wrap}
+.radios label{cursor:pointer}
+.radios input{display:none}
+.radios label span{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:99px;font-size:14px;background:var(--bg)}
+.radios input:checked+span{background:var(--accent);color:#fff;border-color:var(--accent)}
+input,textarea,select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);width:100%}
+.btn{border:0;border-radius:8px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer;background:var(--accent);color:#fff;white-space:nowrap}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:var(--bg);color:var(--text);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent);filter:none}
+.btn.add-btn{width:100%;padding:12px;font-size:16px;font-weight:600;border-radius:10px;box-shadow:0 3px 10px rgba(79,70,229,.35);transition:transform .15s,box-shadow .15s}
+.btn.add-btn:hover{box-shadow:0 6px 14px rgba(79,70,229,.45)}
+.btn.add-btn:active{transform:scale(.98)}
+.btn.danger{background:none;color:var(--p5);border:1px solid var(--line);margin-left:auto}
+.listhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.listhead input{max-width:220px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.title{font-weight:600;font-size:16px}
+.desc{color:var(--muted);font-size:14px;margin:6px 0 12px}
+.badges{display:flex;gap:6px}
+.badge{font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.b-todo{color:var(--todo)}.b-progress{color:var(--prog)}.b-waiting{color:var(--wait)}.b-done{color:var(--done)}
+.p-1{color:var(--p1)}.p-2{color:var(--p2)}.p-3{color:var(--p3)}.p-4{color:var(--p4)}.p-5{color:var(--p5)}
+.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.menu{position:relative}
+.menu-list{position:absolute;top:calc(100% + 4px);left:0;min-width:160px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.18);padding:4px;z-index:10}
+.menu-list button{display:block;width:100%;text-align:left;border:0;background:none;color:var(--text);padding:8px 10px;border-radius:6px;font:inherit;font-size:14px;cursor:pointer}
+.menu-list button:hover{background:var(--bg)}
+.empty{color:var(--muted);text-align:center;padding:24px}
+@media (max-width:640px){.layout{flex-direction:column}aside{width:100%;display:flex;gap:6px;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}aside button{white-space:nowrap;gap:8px;width:auto}.progress{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <span>✅ My Todos</span>
+  <span class="hdr"><span id="today"></span><small id="summary"></small></span>
+</header>
+<div class="layout">
+  <aside>
+    <div id="sidebar"></div>
+    <div class="progress"><span id="pct"></span><div class="bar"><div id="fill"></div></div></div>
+  </aside>
+  <main>
+    <div class="card add">
+      <input id="title" placeholder="What needs to be done?">
+      <textarea id="desc" rows="2" placeholder="Description (optional)"></textarea>
+      <div class="label">Priority</div>
+      <div class="radios" id="prio">
+        <label><input type="radio" name="prio" value="1"><span>Very low</span></label>
+        <label><input type="radio" name="prio" value="2"><span>Low</span></label>
+        <label><input type="radio" name="prio" value="3" checked><span>Medium</span></label>
+        <label><input type="radio" name="prio" value="4"><span>High</span></label>
+        <label><input type="radio" name="prio" value="5"><span>Extreme</span></label>
+      </div>
+      <button class="btn add-btn" id="addBtn">+ Add todo</button>
+    </div>
+    <div class="listhead">
+      <h2 id="heading"></h2>
+      <input id="search" placeholder="Search todos…">
+    </div>
+    <div id="list"></div>
+  </main>
+</div>
+<script>
+var todos = [
+  {id:1,title:"Read the project brief",description:"Understand what the app should do.",status:"done",priority:1},
+  {id:2,title:"Build the layout",description:"Header, sidebar and a list of todos.",status:"progress",priority:4},
+  {id:3,title:"Add the form",description:"Title, description and priority inputs.",status:"todo",priority:3},
+  {id:4,title:"Add status menu",description:"A custom dropdown to change the status.",status:"todo",priority:3},
+  {id:5,title:"Ask teacher about deadline",description:"Waiting for an answer by email.",status:"waiting",priority:5},
+  {id:6,title:"Add search and delete",description:"Filter by text and remove todos.",status:"todo",priority:2}
+];
+var nextId = 7, filter = "all", query = "", openMenu = null;
+var labels = {todo:"To do",progress:"In progress",waiting:"Waiting",done:"Done"};
+var prioLabels = {1:"Very low",2:"Low",3:"Medium",4:"High",5:"Extreme"};
+var filters = [["all","All"],["todo","To do"],["progress","In progress"],["waiting","Waiting"],["done","Done"]];
+var menuStatuses = ["todo","progress","waiting"];
+
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function count(s){return s==="all" ? todos.length : todos.filter(function(t){return t.status===s}).length}
+
+function setStatus(id,status){
+  todos.forEach(function(t){ if(t.id===id) t.status=status; });
+  openMenu = null;
+  render();
+}
+function removeTodo(id){
+  todos = todos.filter(function(t){return t.id!==id});
+  render();
+}
+function toggleMenu(e,id){
+  e.stopPropagation();
+  openMenu = openMenu===id ? null : id;
+  render();
+}
+
+function render(){
+  document.getElementById("sidebar").innerHTML = filters.map(function(f){
+    return '<button class="'+(filter===f[0]?"active":"")+'" onclick="filter=\''+f[0]+'\';render()"><span>'+f[1]+'</span><span>'+count(f[0])+'</span></button>';
+  }).join("");
+
+  var pct = todos.length ? Math.round(count("done")/todos.length*100) : 0;
+  document.getElementById("pct").textContent = pct + "% complete";
+  document.getElementById("fill").style.width = pct + "%";
+  document.getElementById("summary").textContent = count("done") + " of " + todos.length + " done";
+  document.getElementById("heading").textContent = filters.filter(function(f){return f[0]===filter})[0][1];
+
+  var q = query.toLowerCase();
+  var shown = todos.filter(function(t){
+    return (filter==="all"||t.status===filter) && (t.title+" "+t.description).toLowerCase().indexOf(q) !== -1;
+  }).sort(function(a,b){return b.priority-a.priority});
+
+  document.getElementById("list").innerHTML = shown.length ? shown.map(function(t){
+    var actions;
+    if(t.status==="done"){
+      actions = '<button class="btn ghost" onclick="setStatus('+t.id+',\'todo\')">Restart</button>';
+    } else {
+      var items = menuStatuses.map(function(s){
+        return '<button onclick="setStatus('+t.id+',\''+s+'\')">'+(t.status===s?"✓ ":"")+labels[s]+'</button>';
+      }).join("");
+      actions = '<span class="label">Pick status:</span><div class="menu"><button class="btn ghost" onclick="toggleMenu(event,'+t.id+')">'+labels[t.status]+' ▾</button>'
+        + (openMenu===t.id ? '<div class="menu-list">'+items+'</div>' : '')
+        + '</div><button class="btn" onclick="setStatus('+t.id+',\'done\')">Finish</button>';
+    }
+    actions += '<button class="btn danger" onclick="removeTodo('+t.id+')">Delete</button>';
+    return '<div class="card '+t.status+'"><div class="top"><span class="title">'+esc(t.title)+'</span>'
+      + '<span class="badges"><span class="badge p-'+t.priority+'">'+prioLabels[t.priority]+'</span>'
+      + '<span class="badge b-'+t.status+'">'+labels[t.status]+'</span></span></div>'
+      + (t.description?'<p class="desc">'+esc(t.description)+'</p>':'<div style="height:12px"></div>')
+      + '<div class="actions">'+actions+'</div></div>';
+  }).join("") : '<div class="empty">Nothing here yet.</div>';
+}
+
+document.getElementById("addBtn").onclick = function(){
+  var title = document.getElementById("title"), desc = document.getElementById("desc");
+  if(!title.value.trim()) return;
+  var prio = document.querySelector('input[name="prio"]:checked').value;
+  todos.push({id:nextId++,title:title.value.trim(),description:desc.value.trim(),status:"todo",priority:Number(prio)});
+  title.value = ""; desc.value = "";
+  render();
+};
+document.getElementById("search").oninput = function(e){ query = e.target.value; render(); };
+document.addEventListener("click", function(){ if(openMenu!==null){ openMenu = null; render(); } });
+document.getElementById("today").textContent = new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+render();
+</script>
+</body>
+</html>
